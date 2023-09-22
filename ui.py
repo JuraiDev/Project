@@ -1,5 +1,8 @@
 import pygame
 import sys
+import os
+import random
+import importlib
 
 # Initialize Pygame
 pygame.init()
@@ -35,8 +38,12 @@ def render_text_with_shadow(surface, text, position, font, text_color, shadow_co
     surface.blit(shadow_surface, (x+5, y+5))
     surface.blit(text_surface, (x, y))
 
+def update_ui(module, *args, **kwargs):
+
+
+
 # Main loop
-running = True
+    running = True
 while running:
     screen.blit(title_screen, (0, 0))
 

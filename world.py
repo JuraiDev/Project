@@ -1,5 +1,14 @@
 import random
 
+assets = {
+    'forest': ['terrian_-1.png', 'terrian_-2.png', 'terrian_-3.png','terrian_-4.png','terrian_-5.png','terrian_-6.png','terrian_-7.png','terrian_-8.png'],
+    'desert': ['des1.png', 'des2.png', 'des3.png','des4.png'],
+    'grassland': ['gs1.png', 'gs2.png', 'gs3.png', 'gs4.png', 'gs5.png', 'gs6.png', 'gs7.png', 'gs8.png', 'gs9.png', 'gs10.png', 'gs11.png', 'gs12.png', 'gs13.png', 'gs14.png', 'gs15.png','gs16.png'],
+    'mountain': ['mn.png', 'mn2.png', 'mn3.png', 'mn4.png', 'mn5.png', 'mn6.png', 'mn7.png', 'mn8.png'], 
+    'ocean': ['o.png','o1.png','o2.png','o3.png'],
+    'river': ['r1.png', 'r2.png', 'r3.png', 'r4.png', 'r5.png', 'r6.png', 'r7.png', 'r8.png'],
+}
+
 class WorldGeneration:
     def __init__(self):
         self.geographical_features = self.generate_geographical_features()
@@ -551,7 +560,7 @@ class GameWorld:
             "Sheikh-Defining Experiences", "Ayatollah-Defining Experiences", "Lama-Defining Experiences", "Guru-Defining Experiences", 
             "Swami-Defining Experiences", "Yogi-Defining Experiences", "Mystic-Defining Experiences", "Ascetic-Defining Experiences", 
             "Hermit-Defining Experiences", "Recluse-Defining Experiences", "Sage-Defining Experiences", "Philosopher-Defining Experiences", 
-            "Scholar-Defining Experiences", "Academic-Defining Experiences", "Educator-Defining Experiences",
+            "Scholar-Defining Experiences", "Academic-Defining Experiences", "Educator-Defining Experiences", "Teacher-Defining Experiences",
             "Teacher-Defining Experiences", "Mentor-Defining Experiences", "Tutor-Defining Experiences", "Coach-Defining Experiences", 
             "Trainer-Defining Experiences", "Instructor-Defining Experiences", "Facilitator-Defining Experiences", "Guide-Defining Experiences", 
             "Counselor-Defining Experiences", "Therapist-Defining Experiences", "Psychologist-Defining Experiences", "Psychotherapist-Defining Experiences", 
@@ -605,7 +614,8 @@ class WorldGenerator:
                 "description": self.generate_description(region),
                 "events": self.generate_events(),
                 "npcs": self.generate_npcs(),
-                "experiences": random.sample(self.experiences, k=20),
+                "experiences": random.sample(self.experiences, k=min(len(self.experiences), 20)),
+
                 "items": self.generate_items(),
                 "quests": self.generate_quests(),
                 "monsters": self.generate_monsters()
